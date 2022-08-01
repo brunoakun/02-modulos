@@ -1,3 +1,13 @@
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, cupiditate? Delectus, non.
-Doloremque modi sapiente voluptatibus! Dolorem tenetur praesentium ipsa provident! Exercitationem
-officiis nobis deleniti itaque minus commodi consectetur sequi.
+<div class="row">
+    <div class="col-4" *ngFor="let resultado of srvGifs.resultados">
+        <div class="card">
+            <div class="card-head">
+                {{resultado.title}}
+            </div>
+            <div class="card-body">
+                <img [src]="resultado.images.downsized_medium.url" class="card-image-top">
+            </div>
+        </div>
+
+    </div>
+</div>
