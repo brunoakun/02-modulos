@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit { 
+export class SidebarComponent implements OnInit {
 
   constructor(public srvGif: GifsService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
+  busca(index: number) {
+    const query = this.srvGif.historial[index];
+    this.srvGif.buscaImg(query);
+  }
 
 }

@@ -13,9 +13,7 @@ export class BusquedaComponent implements OnInit {
   public txtBuscar: string = '';
 
   // Constructor
-  constructor(
-    private srvGif: GifsService
-  ) {
+  constructor(public srvGif: GifsService) {
     this.txtBuscar = '';
   }
 
