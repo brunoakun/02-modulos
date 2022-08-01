@@ -17,7 +17,10 @@ export class GifsService {
   constructor(private http: HttpClient) {
     // Si existe histrorial en localstorage, recuperarlo
     const localStr = localStorage.getItem('historial');
-    if (localStr) this._historial = JSON.parse(localStr!);  // parse() de string a array
+    if (localStr) {
+      this._historial = JSON.parse(localStr!);  // parse() de string a array
+      this.buscaImg(this.historial[0]);
+    }
   }
 
   // Getters y Setters
