@@ -20,7 +20,7 @@ export class GifsService {
 
   // Métodos
   buscarGifs(texto: string) {
-    texto = texto.trim();
+    texto = texto.trim().toLowerCase();
     if (!texto) return;
     // Si no está en el historial lo incluimos
     if (!this._historial.includes(texto)) {
