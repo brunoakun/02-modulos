@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
@@ -8,6 +8,8 @@ import { Injectable } from '@angular/core';
 export class GifsService {
   // Propiedades
   private _historial: string[] = [];
+
+  private servicioUrl = 'https://api.giphy.com/v1/gifs';
   private apiKey: string = '0rKHNTOc7LvH0hzyRMywVumV43x5U20p';
 
   public buscando: string = '';
@@ -46,8 +48,15 @@ export class GifsService {
 
   buscaImg(query: string) {
     this.buscando = query;
+    const parametros = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('q', query)
+      .set('limit', '10')
+      .set('lang', 'es')
+      .set('rating', 'g')
+      .set('offset', '0');
 
-    this.http.get<any>(`https://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${query}&limit=10&offset=0&rating=g&lang=es`)
+    this.http.get<any>(`${this.servicioUrl}/search`, { params: parametros })
       .subscribe(respuesta => {
         console.log(respuesta.data);
         this.resultados = respuesta.data;
