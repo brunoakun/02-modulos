@@ -27,3 +27,10 @@ npm install bootstrap
   ],
 
 5.- <app-sidebar></app-sidebar> en el app.component.html
+
+
+## 02 llamadas http
+    this.http.get('https://api.giphy.com/v1/gifs/search?api_key=0rKHNTOc7LvH0hzyRMywVumV43x5U20p&q=coche&limit=10&offset=0&rating=g&lang=es')
+      .subscribe((respuesta: any) => {
+        console.log(respuesta.data)
+      });
